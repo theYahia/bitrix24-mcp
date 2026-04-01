@@ -1,7 +1,7 @@
 {
   "name": "@theyahia/bitrix24-mcp",
-  "version": "3.0.0",
-  "description": "MCP server for Bitrix24 CRM — deals, contacts, tasks, users, files, messages. 12 tools.",
+  "version": "3.0.1",
+  "description": "MCP server for Bitrix24 — CRM, deals, contacts, tasks (Russia)",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -46,7 +46,9 @@
     "crm",
     "deals",
     "contacts",
-    "tasks"
+    "tasks",
+    "api",
+    "typescript"
   ],
   "license": "MIT",
   "repository": {

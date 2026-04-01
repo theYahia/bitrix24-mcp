@@ -1,25 +1,19 @@
 # @theyahia/bitrix24-mcp
 
-MCP server for **Bitrix24 CRM** via webhook API. Provides tools for managing deals, contacts, and tasks.
+MCP server for **Bitrix24 CRM** via webhook API. **12 tools** for deals, contacts, tasks, users, files, and messaging.
 
-## Tools
+[![npm](https://img.shields.io/npm/v/@theyahia/bitrix24-mcp)](https://www.npmjs.com/package/@theyahia/bitrix24-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-| Tool | Description |
-|------|------------|
-| `get_deals` | List CRM deals with filters by stage and responsible user |
-| `create_deal` | Create a new CRM deal with title, amount, stage |
-| `get_contacts` | List contacts with filters by name, phone, email |
-| `create_task` | Create a task with title, description, deadline |
+Part of the [Russian API MCP](https://github.com/theYahia/russian-mcp) series by [@theYahia](https://github.com/theYahia).
 
 ## Setup
 
 1. In Bitrix24, go to **Developer resources > Other > Inbound webhook**
-2. Create a webhook with required permissions: `crm`, `task`
-3. Copy the full webhook URL (e.g. `https://company.bitrix24.ru/rest/1/abc123xyz/`)
+2. Create a webhook with permissions: `crm`, `task`, `user`, `disk`, `im`
+3. Copy the full webhook URL
 
 ## Usage with Claude Desktop
-
-Add to your Claude Desktop config:
 
 ```json
 {
@@ -33,6 +27,41 @@ Add to your Claude Desktop config:
     }
   }
 }
+```
+
+### Claude Code
+
+```bash
+claude mcp add bitrix24 -e BITRIX24_WEBHOOK_URL=https://your.bitrix24.ru/rest/1/key/ -- npx -y @theyahia/bitrix24-mcp
+```
+
+## Tools (12)
+
+| Tool | Description |
+|------|-------------|
+| `list_deals` | List CRM deals with filters by stage, user, sort order |
+| `get_deal` | Get a single deal by ID |
+| `create_deal` | Create a deal with title, amount, stage, contacts |
+| `update_deal` | Update deal fields |
+| `list_contacts` | List contacts with filters by name, phone, email |
+| `create_contact` | Create a contact with name, phone, email |
+| `list_tasks` | List tasks with filters by status, user, group |
+| `create_task` | Create a task with title, deadline, priority |
+| `complete_task` | Mark a task as completed |
+| `list_users` | List users with filters by active status, department |
+| `upload_file` | Upload a file to Bitrix24 disk |
+| `send_message` | Send an IM message to a user or chat |
+
+## Demo Prompts
+
+```
+Show me all open deals in Bitrix24
+Create a deal "Website redesign" for 500000 RUB
+List all contacts with email containing "@gmail.com"
+Create a task "Prepare presentation" for user 5, deadline tomorrow
+Complete task 123
+Who are the active users in department 2?
+Send a message to user 1: "Meeting in 15 minutes"
 ```
 
 ## Environment Variables

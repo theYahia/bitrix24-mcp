@@ -2,20 +2,30 @@
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { getDealsSchema, handleGetDeals, createDealSchema, handleCreateDeal } from "./tools/deals.js";
-import { getContactsSchema, handleGetContacts } from "./tools/contacts.js";
-import { createTaskSchema, handleCreateTask } from "./tools/tasks.js";
+import { listDealsSchema, handleListDeals, getDealSchema, handleGetDeal, createDealSchema, handleCreateDeal, updateDealSchema, handleUpdateDeal } from "./tools/deals.js";
+import { listContactsSchema, handleListContacts, createContactSchema, handleCreateContact } from "./tools/contacts.js";
+import { listTasksSchema, handleListTasks, createTaskSchema, handleCreateTask, completeTaskSchema, handleCompleteTask } from "./tools/tasks.js";
+import { listUsersSchema, handleListUsers } from "./tools/users.js";
+import { uploadFileSchema, handleUploadFile } from "./tools/files.js";
+import { sendMessageSchema, handleSendMessage } from "./tools/messages.js";
 
 const server = new McpServer({
   name: "bitrix24-mcp",
-  version: "1.0.0",
+  version: "2.0.0",
 });
 
 server.tool(
-  "get_deals",
-  "List CRM deals from Bitrix24 with optional filters by stage and responsible user.",
-  getDealsSchema.shape,
-  async (params) => ({ content: [{ type: "text", text: await handleGetDeals(params) }] }),
+  "list_deals",
+  "List CRM deals from Bitrix24 with optional filters by stage, responsible user, and sort order.",
+  listDealsSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleListDeals(params) }] }),
+);
+
+server.tool(
+  "get_deal",
+  "Get a single CRM deal by ID with all fields.",
+  getDealSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleGetDeal(params) }] }),
 );
 
 server.tool(
@@ -26,10 +36,31 @@ server.tool(
 );
 
 server.tool(
-  "get_contacts",
+  "update_deal",
+  "Update an existing CRM deal fields: title, stage, amount, contacts, etc.",
+  updateDealSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleUpdateDeal(params) }] }),
+);
+
+server.tool(
+  "list_contacts",
   "List CRM contacts from Bitrix24 with optional filters by name, phone, or email.",
-  getContactsSchema.shape,
-  async (params) => ({ content: [{ type: "text", text: await handleGetContacts(params) }] }),
+  listContactsSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleListContacts(params) }] }),
+);
+
+server.tool(
+  "create_contact",
+  "Create a new CRM contact with name, last name, phone, and email.",
+  createContactSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleCreateContact(params) }] }),
+);
+
+server.tool(
+  "list_tasks",
+  "List tasks from Bitrix24 with optional filters by status, responsible user, and group.",
+  listTasksSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleListTasks(params) }] }),
 );
 
 server.tool(
@@ -39,10 +70,38 @@ server.tool(
   async (params) => ({ content: [{ type: "text", text: await handleCreateTask(params) }] }),
 );
 
+server.tool(
+  "complete_task",
+  "Mark a Bitrix24 task as completed by task ID.",
+  completeTaskSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleCompleteTask(params) }] }),
+);
+
+server.tool(
+  "list_users",
+  "List Bitrix24 users with optional filters by active status and department.",
+  listUsersSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleListUsers(params) }] }),
+);
+
+server.tool(
+  "upload_file",
+  "Upload a file to Bitrix24 disk folder (base64-encoded content).",
+  uploadFileSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleUploadFile(params) }] }),
+);
+
+server.tool(
+  "send_message",
+  "Send an instant message via Bitrix24 IM to a user or chat.",
+  sendMessageSchema.shape,
+  async (params) => ({ content: [{ type: "text", text: await handleSendMessage(params) }] }),
+);
+
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("[bitrix24-mcp] Server started. 4 tools available.");
+  console.error("[bitrix24-mcp] Server started. 12 tools available.");
 }
 
 main().catch((error) => {

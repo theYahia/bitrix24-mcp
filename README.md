@@ -5,7 +5,7 @@ MCP server for **Bitrix24 CRM** via webhook API. **12 tools** for deals, contact
 [![npm](https://img.shields.io/npm/v/@theyahia/bitrix24-mcp)](https://www.npmjs.com/package/@theyahia/bitrix24-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Part of the [Russian API MCP](https://github.com/theYahia/russian-mcp) series by [@theYahia](https://github.com/theYahia).
+Part of the [WWmcp](https://github.com/theYahia/WWmcp) series by [@theYahia](https://github.com/theYahia).
 
 ## Setup
 
@@ -73,3 +73,7 @@ Send a message to user 1: "Meeting in 15 minutes"
 ## License
 
 MIT
+
+---
+
+Часть [WWmcp](https://github.com/theYahia/WWmcp) · Telegram: [@vhodvai](https://t.me/vhodvai)

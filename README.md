@@ -1,6 +1,6 @@
-# @theyahia/bitrix24-mcp
+# Битрикс24 MCP — сделки, задачи и контакты CRM через нейросеть
 
-MCP server for **Bitrix24 CRM** via webhook API. **12 tools** for deals, contacts, tasks, users, files, and messaging.
+Если вы искали, как подключить Битрикс24 к ИИ-ассистенту, спрашивать про сделки и задачи обычными словами или заводить карточки не открывая интерфейс — это оно. **12 инструментов** для сделок, контактов, задач, пользователей, файлов и сообщений. Подключение — через входящий вебхук **Bitrix24**, без OAuth-приложения и без программирования.
 
 [![npm](https://img.shields.io/npm/v/@theyahia/bitrix24-mcp)](https://www.npmjs.com/package/@theyahia/bitrix24-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -77,3 +77,4 @@ MIT
 ---
 
 Часть [WWmcp](https://github.com/theYahia/WWmcp) · Telegram: [@vhodvai](https://t.me/vhodvai)
+

@@ -5,15 +5,15 @@
 [![npm](https://img.shields.io/npm/v/@theyahia/bitrix24-mcp)](https://www.npmjs.com/package/@theyahia/bitrix24-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Part of the [WWmcp](https://github.com/theYahia/WWmcp) series by [@theYahia](https://github.com/theYahia).
+Часть серии [WWmcp](https://github.com/theYahia/WWmcp) от [@theYahia](https://github.com/theYahia).
 
-## Setup
+## Настройка
 
-1. In Bitrix24, go to **Developer resources > Other > Inbound webhook**
-2. Create a webhook with permissions: `crm`, `task`, `user`, `disk`, `im`
-3. Copy the full webhook URL
+1. В Битрикс24 откройте **Приложения → Разработчикам → Другое → Входящий вебхук**
+2. Создайте вебхук с правами: `crm`, `task`, `user`, `disk`, `im`
+3. Скопируйте полный URL вебхука
 
-## Usage with Claude Desktop
+## Подключение к Claude Desktop
 
 ```json
 {
@@ -35,46 +35,45 @@ Part of the [WWmcp](https://github.com/theYahia/WWmcp) series by [@theYahia](htt
 claude mcp add bitrix24 -e BITRIX24_WEBHOOK_URL=https://your.bitrix24.ru/rest/1/key/ -- npx -y @theyahia/bitrix24-mcp
 ```
 
-## Tools (12)
+## Инструменты (12)
 
-| Tool | Description |
+| Инструмент | Описание |
 |------|-------------|
-| `list_deals` | List CRM deals with filters by stage, user, sort order |
-| `get_deal` | Get a single deal by ID |
-| `create_deal` | Create a deal with title, amount, stage, contacts |
-| `update_deal` | Update deal fields |
-| `list_contacts` | List contacts with filters by name, phone, email |
-| `create_contact` | Create a contact with name, phone, email |
-| `list_tasks` | List tasks with filters by status, user, group |
-| `create_task` | Create a task with title, deadline, priority |
-| `complete_task` | Mark a task as completed |
-| `list_users` | List users with filters by active status, department |
-| `upload_file` | Upload a file to Bitrix24 disk |
-| `send_message` | Send an IM message to a user or chat |
+| `list_deals` | Список сделок CRM с фильтрами по стадии, ответственному и сортировкой |
+| `get_deal` | Получить одну сделку по ID |
+| `create_deal` | Создать сделку с названием, суммой, стадией и контактами |
+| `update_deal` | Обновить поля сделки |
+| `list_contacts` | Список контактов с фильтрами по имени, телефону и e-mail |
+| `create_contact` | Создать контакт с именем, телефоном и e-mail |
+| `list_tasks` | Список задач с фильтрами по статусу, ответственному и группе |
+| `create_task` | Создать задачу с названием, дедлайном и приоритетом |
+| `complete_task` | Отметить задачу выполненной |
+| `list_users` | Список сотрудников с фильтрами по активности и отделу |
+| `upload_file` | Загрузить файл на Битрикс24.Диск |
+| `send_message` | Отправить сообщение в чат сотруднику или в группу |
 
-## Demo Prompts
+## Демо-промпты
 
 ```
-Show me all open deals in Bitrix24
-Create a deal "Website redesign" for 500000 RUB
-List all contacts with email containing "@gmail.com"
-Create a task "Prepare presentation" for user 5, deadline tomorrow
-Complete task 123
-Who are the active users in department 2?
-Send a message to user 1: "Meeting in 15 minutes"
+Покажи все открытые сделки в Битрикс24
+Создай сделку «Редизайн сайта» на 500000 рублей
+Выведи все контакты с почтой на «@gmail.com»
+Поставь задачу «Подготовить презентацию» сотруднику 5, дедлайн завтра
+Заверши задачу 123
+Кто из сотрудников активен в отделе 2?
+Отправь сообщение сотруднику 1: «Встреча через 15 минут»
 ```
 
-## Environment Variables
+## Переменные окружения
 
-| Variable | Required | Description |
+| Переменная | Обяз. | Описание |
 |----------|----------|-------------|
-| `BITRIX24_WEBHOOK_URL` | Yes | Full Bitrix24 webhook URL including auth key |
+| `BITRIX24_WEBHOOK_URL` | да | Полный URL вебхука Битрикс24 вместе с ключом авторизации |
 
-## License
+## Лицензия
 
 MIT
 
 ---
 
 Часть [WWmcp](https://github.com/theYahia/WWmcp) · Telegram: [@vhodvai](https://t.me/vhodvai)
-

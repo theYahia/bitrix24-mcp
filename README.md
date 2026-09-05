@@ -1,3 +1,17 @@
+> ## 🗄 Репозиторий заархивирован
+>
+> Разработка переехала в **[theYahia/WWmcp](https://github.com/theYahia/WWmcp)** — монорепозиторий MCP-серверов для незападных API: СНГ, MENA, Африка, LATAM, Юго-Восточная Азия. Общее ядро `@theyahia/mcp-core`, единый CI, единый релизный конвейер.
+>
+> Актуальная версия того, что лежало здесь: [`servers/bitrix24/`](https://github.com/theYahia/WWmcp/tree/main/servers/bitrix24)
+>
+> Пакет в npm прежний — [`@theyahia/bitrix24-mcp`](https://www.npmjs.com/package/@theyahia/bitrix24-mcp), ставится и работает как раньше.
+> Здесь больше ничего не обновляется. Задачи и pull request'ы — в WWmcp.
+>
+> **Archived — development moved to [theYahia/WWmcp](https://github.com/theYahia/WWmcp),** a monorepo of MCP servers for non-Western APIs.
+> The current version of this package now lives at [`servers/bitrix24/`](https://github.com/theYahia/WWmcp/tree/main/servers/bitrix24).
+> The npm package [`@theyahia/bitrix24-mcp`](https://www.npmjs.com/package/@theyahia/bitrix24-mcp) is unchanged.
+> Please open issues and pull requests there.
+
 # Битрикс24 MCP — сделки, задачи и контакты CRM через нейросеть
 
 Если вы искали, как подключить Битрикс24 к ИИ-ассистенту, спрашивать про сделки и задачи обычными словами или заводить карточки не открывая интерфейс — это оно. **12 инструментов** для сделок, контактов, задач, пользователей, файлов и сообщений. Подключение — через входящий вебхук **Bitrix24**, без OAuth-приложения и без программирования.
